@@ -1,10 +1,10 @@
 tax { @id, insert_at timestamp } {
   income {
     transaction { }
+      -> info?
       -> item
       -> tax (tax_amount)
       -> income (income_amount)
-      -> info?
 
     info {
       text text
@@ -38,11 +38,11 @@ tax { @id, insert_at timestamp } {
       -> tax
       -> exchange_transaction
 
-    exchange { name text }
-
     exchange_transaction {
       exchange_transaction_id text
     }
       -> exchange
+
+    exchange { name text }
   }
 }
