@@ -31,10 +31,18 @@ tax { @id, insert_at timestamp } {
     } -> tax
       -> expense
 
-    translation { }
+    translation {
+      tax_amount bigint,
+      cash_amount bigint
+    }
       -> tax
-      -> exchange
+      -> exchange_transaction
 
     exchange { name text }
+
+    exchange_transaction {
+      exchange_transaction_id text
+    }
+      -> exchange
   }
 }
