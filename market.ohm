@@ -1,0 +1,22 @@
+market {
+    Message = List | Purchase
+
+  List = ListGlyph description Price Quantity?
+    Purchase = PurchaseGlyph ID ShipInfo
+
+    ListGlyph = "list"
+    PurchaseGlyph = "purchase"
+
+    Price = number
+    Quantity = number
+
+    ID = description
+
+    ShipInfo = description
+
+    description = first_character additional_character*
+    first_character = letter | "_"
+    additional_character = first_character | alnum
+
+    number = digit+
+}
