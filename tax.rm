@@ -30,5 +30,11 @@ tax { @id, insert_at timestamp } {
       amount bigint
     } -> tax
       -> expense
+
+    translation { }
+      -> tax
+      -> exchange
+
+    exchange { name text }
   }
 }
